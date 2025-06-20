@@ -13,6 +13,14 @@ int main() {
 	if (tempo >= 60) {
 		varMinuto = tempo / 60;
 		varSegundo = tempo % 60;
+	}else if (tempo >= 3600) {
+		varHora = tempo / 60;
+		varMinuto = tempo % 60;
+		if (tempo % 60 != 0) {
+			varSegundo = varMinuto / 60;	
+		}
+	}else {
+		varSegundo = tempo;
 	}
 	
 	Sleep(500);
