@@ -10,15 +10,13 @@ int main() {
 	printf("Digite um numero em segundos: ");
 	scanf(" %d", &tempo);
 	
-	if (tempo >= 60) {
+	if (tempo >= 3600) {
+		varHora = (tempo / 60) / 60;
+		varMinuto = (tempo / 60) % 60;
+		varSegundo = ((tempo / 60) / 60) % 60;
+	}else if (tempo >= 60) {
 		varMinuto = tempo / 60;
 		varSegundo = tempo % 60;
-	}else if (tempo >= 3600) {
-		varHora = tempo / 60;
-		varMinuto = tempo % 60;
-		if (tempo % 60 != 0) {
-			varSegundo = varMinuto / 60;	
-		}
 	}else {
 		varSegundo = tempo;
 	}
@@ -35,14 +33,13 @@ int main() {
 	for (int i = 0; i <= tempo; i++ ) {
 		if (i == 0) {
 			printf("%s", caracteres[0]);
-		} else if (i < tempo) {
+		} else if (i < 60) {
 			printf("%s", caracteres[1]);
 		} else {
 			printf("%s", caracteres[2]);
 		}
 		Sleep(1000);
 	}
-
 
 	return 0;
 }
